@@ -1,0 +1,145 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "networkInterfaceName": {
+            "value": "vm1602"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "VM1nsg534"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "Port_443",
+                    "properties": {
+                        "priority": 1010,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "176.37.97.223",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "443"
+                    }
+                },
+                {
+                    "name": "Port_80",
+                    "properties": {
+                        "priority": 1020,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "176.37.97.223",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "80"
+                    }
+                },
+                {
+                    "name": "Port_def",
+                    "properties": {
+                        "priority": 1030,
+                        "protocol": "*",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "10.0.1.0/26",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "*"
+                    }
+                },
+                {
+                    "name": "default-allow-ssh",
+                    "properties": {
+                        "priority": 1000,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "176.37.97.223",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "subnet2"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/c023eb57-a395-4b35-a0e3-c447a6098af2/resourceGroups/TestResGroup/providers/Microsoft.Network/virtualNetworks/Netw1"
+        },
+        "publicIpAddressName": {
+            "value": "VM1-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "pipDeleteOption": {
+            "value": "Detach"
+        },
+        "virtualMachineName": {
+            "value": "VM1"
+        },
+        "virtualMachineComputerName": {
+            "value": "VM1"
+        },
+        "virtualMachineRG": {
+            "value": "TestResGroup"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "osDiskDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "nicDeleteOption": {
+            "value": "Detach"
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        },
+        "adminPublicKey":{
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSDFmNAsrYqZzLoFvH+xQHCi7kds/aQC2OmUKVeh1wUeVDbkG/kHpwrzDH4DtXzZR/nTOgmj4hKgflhKIioCQvqZtLPkt2JJDZNjv/gR+BbFtyQ9s6JIwrXX6oW+oybtNNpakUK874uXdv3BDApUH2W8G9HxmMfz1NwGFzCi1LPm4vQqhORbgda+hfaACHu2r+rz9dO/n/MocRPqATdX5a8IWpaMFi63Hi6/7bEey3ObUK0NKmA5rGdihVuN/wROizx/LUPfVqXGF8dQy2ZJKVqnESCiLwg4KsOnKDZOygx11oC7/WsJzu0pW/CuBYB8FgNK7/XGzKr1+X5pwKRaM4xIawbVVuJqZQwHF30C63sIflFe1wzGosrqIc6P16EGT/j2F2ggcFYlysTN0hOKM2dLJ2HnqLSbPhD1y3I6w5ElBOhY0Ri18TlO7GB8q983AE9meBMjNyUdGULi5fcbcAfBaekTFK6qw90ax6heOPUzl9n5tCKbqhOBIboyomHKM= vital@DESKTOP-NNF2M22"
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "UTC"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        },
+        "autoShutdownNotificationEmail": {
+            "value": "Anastasiia_Dolot@epam.com"
+        }
+    }
+}
