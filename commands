@@ -12,6 +12,21 @@ git clone https://github.com/Anastasiia-Dolot/test.git
 cd /var/www/html && rm index.html && cp -r /home/azureuser/test/* .
 touch favicon.ico
 ls -1 | xargs -I{} chmod 777 {} && cd includes && ls -1 | xargs -I{} chmod 777 {}
-sudo nano /etc/apache2/mods-enabled/dir.conf
 
-mkdir azagent;cd azagent;curl -fkSL -o vstsagent.tar.gz https://vstsagentpackage.azureedge.net/agent/2.198.3/vsts-agent-linux-x64-2.198.3.tar.gz;tar -zxvf vstsagent.tar.gz; if [ -x "$(command -v systemctl)" ]; then ./config.sh --environment --environmentname "Ub18" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/AnastasiiaDolot/ --work _work --projectname 'AnastasiiaPr1' --auth PAT --token 6ogsmsq5jyn7iubvculfix7pj3oomtkzfnjvrgbhvvjissc6hpoa --runasservice; sudo ./svc.sh install; sudo ./svc.sh start; else ./config.sh --environment --environmentname "Ub18" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/AnastasiiaDolot/ --work _work --projectname 'AnastasiiaPr1' --auth PAT --token 6ogsmsq5jyn7iubvculfix7pj3oomtkzfnjvrgbhvvjissc6hpoa; ./run.sh; fi
+sudo apt-get install mysql-client
+
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h db-test.mysql.database.azure.com -u admin1 -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
+
+CREATE DATABASE php_mysql_crud;
+
+use php_mysql_crud;
+
+CREATE TABLE task(
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DESCRIBE task;
