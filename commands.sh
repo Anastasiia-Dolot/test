@@ -10,8 +10,7 @@ sudo apt-get install php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-in
 sudo a2enmod php7.2
 sudo systemctl restart apache2
 
-git clone https://github.com/Anastasiia-Dolot/test.git
-cd /var/www/html && sudo rm index.html && sudo cp -r /home/azureuser/test/* .
+git clone https://github.com/Anastasiia-Dolot/test.git && sleep 5 && cd /var/www/html && sudo rm index.html && sudo cp -r /home/azureuser/test/* .
 sudo touch favicon.ico
 ls -1 | xargs -I{} sudo chmod 777 {} && cd includes && ls -1 | xargs -I{} sudo chmod 777 {}
 
