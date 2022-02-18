@@ -13,7 +13,6 @@ sudo systemctl restart apache2
 sudo git clone https://github.com/Anastasiia-Dolot/test.git
 sudo cd /var/www/html && sudo rm index.html && sudo cp -r /home/azureuser/test/* .
 sudo touch favicon.ico
-ls -1 | xargs -I{} sudo chmod 777 {} && cd includes && ls -1 | xargs -I{} sudo chmod 777 {}
 
 sudo apt install mysql-client-core-8.0
 
